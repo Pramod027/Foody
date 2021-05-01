@@ -71,10 +71,9 @@
 //}
 
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
+
 import 'package:provider/provider.dart';
-import 'package:workshop/app_model/food.dart';
-import 'package:workshop/app_model/user.dart';
+
 import 'package:workshop/app_notifier/auth_notifier.dart';
 import 'package:workshop/app_notifier/burger_notifier.dart';
 import 'package:workshop/app_notifier/cart_notifier.dart';
@@ -82,10 +81,8 @@ import 'package:workshop/app_notifier/fast_food_notifier.dart';
 import 'package:workshop/app_notifier/food_notifier.dart';
 import 'package:workshop/app_notifier/hotdog_notifier.dart';
 import 'package:workshop/app_notifier/pizza_notifier.dart';
-import 'package:workshop/app_screens/btn_nav_screens/feed.dart';
 import 'package:workshop/app_screens/btn_nav_screens/nav_page.dart';
 import 'package:workshop/app_screens/login.dart';
-import 'package:workshop/app_screens/onboarding_screen/intro_page.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:workshop/cart_app/cart_model.dart';
 

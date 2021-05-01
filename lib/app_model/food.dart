@@ -8,7 +8,6 @@ class Food {
   String price;
   String image;
   String description;
-  String searchKey;
   List subIngredients = [];
   Timestamp createdAt;
   Timestamp updatedAt;
@@ -26,7 +25,6 @@ class Food {
     updatedAt = data['updatedAt'];
     price = data['price'];
     rating = data['rating'];
-    searchKey = data['searchKey'];
     description = data['description'];
   }
 
@@ -41,7 +39,6 @@ class Food {
       'updatedAt': updatedAt,
       'price': price,
       'rating': rating,
-      'searchKey': searchKey,
       'description': description,
     };
   }
