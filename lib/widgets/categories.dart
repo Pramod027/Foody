@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
-import 'package:workshop/model/category.dart';
-
-import '../helpers/style.dart';
+import 'package:workshop/data/data_export.dart';
+import 'package:workshop/shared/app_colors.dart';
 import 'custom_text.dart';
 import 'loading.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryWidget extends StatelessWidget {
   final CategoryModel category;
@@ -18,10 +18,10 @@ class CategoryWidget extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            width: 140,
-            height: 160,
+            width: 140.w,
+            height: 160.h,
             child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(30.r),
                 child: Stack(
                   children: <Widget>[
                     Positioned.fill(
@@ -38,12 +38,12 @@ class CategoryWidget extends StatelessWidget {
                 )),
           ),
           Container(
-            width: 140,
-            height: 160,
+            width: 140.w,
+            height: 160.h,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
+                  bottomLeft: Radius.circular(30.r),
+                  bottomRight: Radius.circular(30.r),
                 ),
                 gradient: LinearGradient(
                   begin: Alignment.bottomCenter,
@@ -64,8 +64,8 @@ class CategoryWidget extends StatelessWidget {
                   alignment: Alignment.center,
                   child: CustomText(
                     text: category.name,
-                    color: white,
-                    size: 26,
+                    color: AppColor().white,
+                    size: 26.sp,
                     weight: FontWeight.w300,
                   )))
         ],

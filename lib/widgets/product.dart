@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:workshop/helpers/screen_navigation.dart';
-import 'package:workshop/helpers/style.dart';
-import 'package:workshop/model/products.dart';
-import 'package:workshop/providers/product.dart';
-import 'package:workshop/providers/restaurant.dart';
-import 'package:workshop/screen/restaurant.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:workshop/data/data_export.dart';
+import 'package:workshop/presentation/presentation_export.dart';
+import 'package:workshop/shared/app_sized_box.dart';
+import 'package:workshop/shared/shared_export.dart';
 import 'custom_text.dart';
 
 class ProductWidget extends StatelessWidget {
@@ -20,11 +18,11 @@ class ProductWidget extends StatelessWidget {
     final productProvider = Provider.of<ProductProvider>(context);
 
     return Padding(
-      padding: const EdgeInsets.only(left: 4, right: 4, top: 4, bottom: 10),
+      padding: EdgeInsets.only(left: 4, right: 4, top: 4, bottom: 10),
       child: Container(
-        height: 110,
+        height: 110.h,
         decoration: BoxDecoration(
-            color: white,
+            color: AppColor().white,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
@@ -36,12 +34,12 @@ class ProductWidget extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Container(
-              width: 140,
-              height: 120,
+              width: 140.w,
+              height: 120.h,
               child: ClipRRect(
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  topLeft: Radius.circular(20),
+                  bottomLeft: Radius.circular(20.r),
+                  topLeft: Radius.circular(20.r),
                 ),
                 child: Image.network(
                   product.image,
@@ -57,19 +55,19 @@ class ProductWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(top: 8.0, left: 8.0),
+                          padding: EdgeInsets.only(top: 8.h, left: 8.w),
                           child: CustomText(
                             text: product.name,
-                            size: 18,
+                            size: 18.sp,
                             weight: FontWeight.bold,
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(8),
+                          padding: EdgeInsets.all(8.w),
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: white,
+                                borderRadius: BorderRadius.circular(20.r),
+                                color: AppColor().white,
                                 boxShadow: [
                                   BoxShadow(
                                       color: Colors.grey[300],
@@ -77,22 +75,20 @@ class ProductWidget extends StatelessWidget {
                                       blurRadius: 4),
                                 ]),
                             child: Padding(
-                              padding: const EdgeInsets.all(4.0),
+                              padding: EdgeInsets.all(4.w),
                               child: Icon(
                                 Icons.favorite_border,
-                                color: red,
-                                size: 18,
+                                color: AppColor().red,
+                                size: 18.h,
                               ),
                             ),
                           ),
                         )
                       ],
                     ),
-                    SizedBox(
-                      height: 2,
-                    ),
+                    kShboxH2,
                     Padding(
-                      padding: const EdgeInsets.only(left: 8),
+                      padding: EdgeInsets.only(left: 8.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
@@ -115,7 +111,7 @@ class ProductWidget extends StatelessWidget {
                                 text: product.restaurant,
                                 color: Colors.grey,
                                 weight: FontWeight.w600,
-                                size: 15,
+                                size: 15.sp,
                               )),
                         ],
                       ),
@@ -126,44 +122,44 @@ class ProductWidget extends StatelessWidget {
                         Row(
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
+                              padding: EdgeInsets.only(left: 8.w),
                               child: Icon(
                                 Icons.star,
-                                color: red,
-                                size: 16,
+                                color: AppColor().red,
+                                size: 16.sp,
                               ),
                             ),
                             Icon(
                               Icons.star,
-                              color: red,
-                              size: 16,
+                              color: AppColor().red,
+                              size: 16.sp,
                             ),
                             Icon(
                               Icons.star,
-                              color: red,
-                              size: 16,
+                              color: AppColor().red,
+                              size: 16.sp,
                             ),
                             Icon(
                               Icons.star,
-                              color: grey,
-                              size: 16,
+                              color: AppColor().grey,
+                              size: 16.sp,
                             ),
                             SizedBox(
-                              width: 2,
+                              width: 2.w,
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
+                              padding: EdgeInsets.only(left: 8.w),
                               child: CustomText(
                                 text: product.rating.toString(),
                                 color: Colors.black,
                                 weight: FontWeight.bold,
-                                size: 14.0,
+                                size: 14.sp,
                               ),
                             ),
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
+                          padding: EdgeInsets.only(right: 8.w),
                           child: CustomText(
                             text: "\$${product.price / 100}",
                             weight: FontWeight.bold,

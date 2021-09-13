@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:workshop/shared/app_sized_box.dart';
 import 'custom_text.dart';
 
 class BottomNavIcon extends StatelessWidget {
@@ -13,19 +14,17 @@ class BottomNavIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.w),
       child: GestureDetector(
         onTap: onTap ?? null,
         child: Column(
           children: <Widget>[
             Image.asset(
               "images/$image",
-              width: 20,
-              height: 20,
+              width: 20.h,
+              height: 20.h,
             ),
-            SizedBox(
-              height: 2,
-            ),
+            kShboxH2,
             CustomText(
               text: name,
             )

@@ -1,15 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:transparent_image/transparent_image.dart';
-import 'package:workshop/helpers/screen_navigation.dart';
-import 'package:workshop/providers/product.dart';
-import 'package:workshop/providers/user.dart';
-import 'package:workshop/screen/details.dart';
-
-import '../helpers/style.dart';
-import 'custom_text.dart';
-import 'loading.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:workshop/data/data_export.dart';
+import 'package:workshop/presentation/presentation_export.dart';
+import 'package:workshop/shared/shared_export.dart';
+import 'package:workshop/widgets/widgets_export.dart';
 
 class Featured extends StatefulWidget {
   @override
@@ -23,10 +19,11 @@ class _FeaturedState extends State<Featured> {
     final user = Provider.of<UserProvider>(context);
 
     return Container(
-      height: 220,
+      height: 220.h,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: productProvider.products.length,
+          shrinkWrap: true,
           itemBuilder: (_, index) {
             return Padding(
                 padding: EdgeInsets.fromLTRB(12, 14, 16, 12),
@@ -39,11 +36,11 @@ class _FeaturedState extends State<Featured> {
                         ));
                   },
                   child: Container(
-                    height: 220,
-                    width: 200,
+                    height: 220.h,
+                    width: 200.w,
                     decoration: BoxDecoration(
-                        color: white,
-                        borderRadius: BorderRadius.circular(20),
+                        color: AppColor().white,
+                        borderRadius: BorderRadius.circular(20.r),
                         boxShadow: [
                           BoxShadow(
                               color: Colors.grey[300],
@@ -54,8 +51,8 @@ class _FeaturedState extends State<Featured> {
                       children: <Widget>[
                         ClipRRect(
                           borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20)),
+                              topLeft: Radius.circular(20.r),
+                              topRight: Radius.circular(20.r)),
                           child: Stack(
                             children: <Widget>[
                               Positioned.fill(
@@ -67,7 +64,7 @@ class _FeaturedState extends State<Featured> {
                                 child: FadeInImage.memoryNetwork(
                                   placeholder: kTransparentImage,
                                   image: productProvider.products[index].image,
-                                  height: 126,
+                                  height: 126.h,
                                 ),
                               )
                             ],
@@ -103,41 +100,41 @@ class _FeaturedState extends State<Featured> {
                             Row(
                               children: <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                  padding: EdgeInsets.only(left: 8.w),
                                   child: CustomText(
                                     text: productProvider.products[index].rating
                                         .toString(),
-                                    color: grey,
-                                    size: 14.0,
+                                    color: AppColor().grey,
+                                    size: 14.sp,
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 2,
+                                  width: 2.w,
                                 ),
                                 Icon(
                                   Icons.star,
-                                  color: red,
-                                  size: 16,
+                                  color: AppColor().red,
+                                  size: 16.sp,
                                 ),
                                 Icon(
                                   Icons.star,
-                                  color: red,
-                                  size: 16,
+                                  color: AppColor().red,
+                                  size: 16.sp,
                                 ),
                                 Icon(
                                   Icons.star,
-                                  color: red,
-                                  size: 16,
+                                  color: AppColor().red,
+                                  size: 16.sp,
                                 ),
                                 Icon(
                                   Icons.star,
-                                  color: grey,
-                                  size: 16,
+                                  color: AppColor().grey,
+                                  size: 16.sp,
                                 ),
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 8.0),
+                              padding: EdgeInsets.only(right: 8.w),
                               child: CustomText(
                                 text:
                                     "\$${productProvider.products[index].price / 100}",
